@@ -42,20 +42,28 @@ Can I create new Critters?
 Yes! All Critters implement the abstract class Critter, with has three abstract methods to override to define a critter:
 
 ````java  
+/**
+ * This is where the magic happens. Here you define your Critter's behavior by returning an Action, based on the 
+ * information you have about your surroundings.
+ */
 public abstract Action getAction();
 ````
-This is where the magic happens. Here you define your Critter's behavior by returning an Action, based on the information
-you have about your surroundings.
+
 
 ````java
+/**
+ * This is the character that represents your Critter on the board.
+ */
 public abstract char getSymbol();
 ````
-This is the character that represents your Critter on the board.
 
 ````java
+/**
+ * This is simply a description of your Critter that appears on the configuration panel.
+ */
 public abstract String getDescription();
 ````
-This is simply a description of your Critter that appears on the configuration panel.
+
 
 Once you've done that, all you have to do is place your Critter in the "critters.type" package. It will show up as an 
 option in the configuration GUI.
