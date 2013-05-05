@@ -26,6 +26,8 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 
 import javax.swing.Timer;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import critters.Critter;
 import critters.CritterModel;
@@ -40,7 +42,7 @@ import critters.util.PerformanceMonitor;
  */
 public class CritterMain extends javax.swing.JFrame {
 
-	public static final int FIELD_WIDTH = 100; // Columns of Critters
+	public static final int FIELD_WIDTH = 120; // Columns of Critters
 
 	public static final int FIELD_HEIGHT = 50; // Rows of Critters
 
@@ -59,14 +61,13 @@ public class CritterMain extends javax.swing.JFrame {
 	public CritterMain() {
 		initComponents();
 		controlPanel1 = new critters.gui.ControlPanel();
-		critterCanvas1 = new critters.gui.CritterCanvas();
+		theModel = new CritterModel(FIELD_WIDTH, FIELD_HEIGHT);
+		critterCanvas1 = new critters.gui.CritterCanvas(theModel);
 		jPanel1.add(controlPanel1);
 		jPanel2.add(critterCanvas1);
 		fm = getFontMetrics(new Font("TimesRoman", Font.PLAIN, 10));
 		critterCanvas1.setFont(fm.getFont());
-		theModel = new CritterModel(FIELD_WIDTH, FIELD_HEIGHT);
 		lastState = new HashMap<Class<? extends Critter>, Integer>();
-		critterCanvas1.setModel(theModel);
 		roundTimer = new Timer(SPEED, new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				updateGrid();
@@ -201,6 +202,18 @@ public class CritterMain extends javax.swing.JFrame {
 	 *          the command line arguments
 	 */
 	public static void main(String args[]) {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+		    // If Nimbus is not available, you can set the GUI to another look and feel.
+		}
+		
+		
 		CritterMain cg = new CritterMain();
 		cg.populateGrid(100, Wanderer.class);
 		cg.populateGrid(100, FlyTrap.class);

@@ -28,7 +28,6 @@ import critters.Critter.Action;
 import critters.Critter.Direction;
 import critters.Critter.Scent;
 import critters.Critter.Type;
-import critters.gui.CritterGUI;
 import critters.type.*;
 
 public class CritterModel {
@@ -59,12 +58,6 @@ public class CritterModel {
 	public CritterModel(int cols, int rows) {
 		columns = cols;
 		this.rows = rows;
-		init();
-	}
-
-	public CritterModel() {
-		columns = CritterGUI.FIELD_WIDTH;
-		rows = CritterGUI.FIELD_HEIGHT;
 		init();
 	}
 

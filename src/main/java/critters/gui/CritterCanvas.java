@@ -34,13 +34,9 @@ public class CritterCanvas extends javax.swing.JPanel {
     private FontMetrics fm;
     
     /** Creates new form CritterCanvas */
-    public CritterCanvas() {
+    public CritterCanvas(CritterModel theModel) {
+    	this.theModel = theModel;
         initComponents();
-    }
-    
-    public void setModel(CritterModel theModel)
-    {
-        this.theModel = theModel;
     }
     
     public void setFontmetrics(FontMetrics fm)
