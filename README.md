@@ -71,8 +71,11 @@ option in the configuration GUI.
 How do I run it?
 ================
 
-I haven't made a good build/run script yet so for now just download the source, compile it, and then run the 
-critters.gui.CrittersMain class.
+I haven't made a good run script yet so for now just download the source, compile it, and then run it:
+````
+prompt$ mvn package
+prompt$ java -cp target/critters-1.0.jar critters.gui.CritterMain
+````
 
 Bleh! This code is AWFUL!
 =========================

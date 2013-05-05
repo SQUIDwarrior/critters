@@ -31,7 +31,7 @@ public abstract class Critter {
 	
 	public DNA dna = new DNA();
 	
-	// These define the the state of each loctaion
+	// These define the the state of each location
 	// around the Critter
 	public Type FRONT;
 	public Type LEFT;
