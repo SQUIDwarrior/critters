@@ -1,0 +1,30 @@
+package critters.type;
+
+import critters.Critter;
+
+public class Runner extends Critter {
+
+	@Override
+	public Action getAction() {
+		
+		if(FRONT == Type.OTHER)
+			return Action.INFECT;
+		else if(FRONT == Type.WALL || FRONT == Type.SAME)
+			return Action.TURN_LEFT;		
+		else
+			return Action.HOP;
+	
+	}
+
+	@Override
+	public char getSymbol() {
+		return 'R';
+	}
+
+	@Override
+	public String getDescription() {
+		return "Very simple critter that moves in a straight line until it hits a wall or same-type critter " +
+				"then turns left.  Will infect other critter, but will not turn to meet them.";
+	}
+
+}

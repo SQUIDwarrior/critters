@@ -1,0 +1,26 @@
+package critters.type;
+
+import critters.Critter;
+
+public class Spinner extends Critter {
+
+	@Override
+	public Action getAction() {
+		if(FRONT == Type.OTHER)
+			return Action.INFECT;
+		else
+			return Action.TURN_LEFT;
+	}
+
+	@Override
+	public char getSymbol() {
+		// TODO Auto-generated method stub
+		return 'S';
+	}
+
+	@Override
+	public String getDescription() {
+		return "Spins in place, infecting anything in front. Basically, Food with fangs.";
+	}
+
+}
