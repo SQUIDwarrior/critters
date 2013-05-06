@@ -1,5 +1,5 @@
-critters
-========
+Critters!
+=========
 
 This is my implementation of a game called Critters that one of my college professors used in a CS class. 
 
